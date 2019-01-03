@@ -10,6 +10,4 @@ public class Droid extends Character {
     public void setPrimaryFunction(String primaryFunction) {
         this.primaryFunction = primaryFunction;
     }
-
-
 }
