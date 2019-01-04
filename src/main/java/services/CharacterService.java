@@ -1,6 +1,7 @@
 package services;
 
 import models.Character;
+import org.eclipse.microprofile.graphql.Argument;
 import org.eclipse.microprofile.graphql.Mutation;
 import org.eclipse.microprofile.graphql.Query;
 import org.eclipse.microprofile.graphql.Subscription;
@@ -58,6 +59,21 @@ public class CharacterService {
      */
     @Subscription(name = "onNewCharacter", description = "Get notified when a new character enter the story")
     public Flow.Publisher<Character> onNewCharacter(String clientSubscriptionId) {
+        return null;
+    }
+
+    /*
+    @Argument should generate the following schema:
+    type Query {
+        #Search characters by name
+        #name: Search terms
+        searchByName(name: String = "Han Solo"): [Character]
+    }
+     */
+    @Query(name = "searchByName", description = "Search characters by name")
+    public List<Character> getByName(
+            @Argument(name = "name", defaultValue = "Han Solo", description = "Search terms")
+                    String search) {
         return null;
     }
 }
