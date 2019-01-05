@@ -1,10 +1,8 @@
 package services;
 
 import models.Character;
-import org.eclipse.microprofile.graphql.Argument;
-import org.eclipse.microprofile.graphql.Mutation;
-import org.eclipse.microprofile.graphql.Query;
-import org.eclipse.microprofile.graphql.Subscription;
+import models.Tweet;
+import org.eclipse.microprofile.graphql.*;
 
 import java.util.List;
 import java.util.concurrent.Flow;
@@ -24,6 +22,7 @@ public class CharacterService {
      */
     @Query(name = "getFriendsOf", description = "Returns all the friends of a character")
     public List<Character> getFriendsOf(Character character) {
+        // ...
         return null;
     }
 
@@ -41,6 +40,7 @@ public class CharacterService {
      */
     @Mutation(name = "addCharacter", description = "Save a new character")
     public Character save(Character character) {
+        // ...
         return null;
     }
 
@@ -59,6 +59,7 @@ public class CharacterService {
      */
     @Subscription(name = "onNewCharacter", description = "Get notified when a new character enter the story")
     public Flow.Publisher<Character> onNewCharacter(String clientSubscriptionId) {
+        // ...
         return null;
     }
 
@@ -74,6 +75,21 @@ public class CharacterService {
     public List<Character> getByName(
             @Argument(name = "name", defaultValue = "Han Solo", description = "Search terms")
                     String search) {
+        // ...
+
+        return null;
+    }
+
+    /*
+    @Source should generate the following schema:
+        type Character {
+            # Other fields ...
+            tweets: [Tweet]
+        }
+     */
+    @Query(name = "tweets", description = "Get the last tweets for a character")
+    public List<Tweet> tweets(@Source Character character) {
+        // Contact Twitter to fetch the Tweets about this book
         return null;
     }
 }
