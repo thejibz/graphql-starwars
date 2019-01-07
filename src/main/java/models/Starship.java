@@ -23,13 +23,14 @@ import org.eclipse.microprofile.graphql.*;
 @Type(name = "Starship", description = "A starship from Starwars")
 @InputType(name = "StarshipInput", description = "Input object for a starship")
 @FieldsOrder(fields = {"name", "id", "lentgth"})
-@IgnoreFields(fields = {"color"})
 public class Starship {
     @InputField(name = "uuid", description = "uuid of a new Starship")
     private String id;
     private String name;
     private float length;
+    @Ignore
     private String color;
+    private String mass;
 
     public String getId() {
         return this.id;
@@ -51,8 +52,18 @@ public class Starship {
         return length;
     }
 
+    @Ignore
     public void setLength(float length) {
         this.length = length;
+    }
+
+    @Ignore
+    public String getMass() {
+        return mass;
+    }
+
+    public void setMass(String mass) {
+        this.mass = mass;
     }
 
     public String getColor() {
