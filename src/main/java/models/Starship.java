@@ -30,7 +30,7 @@ public class Starship {
     private float length;
     @Ignore
     private String color;
-    private String mass;
+    private float mass;
 
     public String getId() {
         return this.id;
@@ -58,11 +58,11 @@ public class Starship {
     }
 
     @Ignore
-    public String getMass() {
+    public float getMass() {
         return mass;
     }
 
-    public void setMass(String mass) {
+    public void setMass(float mass) {
         this.mass = mass;
     }
 

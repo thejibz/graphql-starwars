@@ -10,7 +10,7 @@ import java.lang.annotation.Target;
 @Target({ElementType.METHOD, ElementType.FIELD})
 public @interface Query {
 
-    String name() default "";
+    String value() default "";
 
     String description() default "";
 

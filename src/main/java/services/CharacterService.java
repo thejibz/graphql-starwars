@@ -20,7 +20,7 @@ public class CharacterService {
     two distinct types are generated in the GraphQL schema (Character and CharacterInput).
     This is necessary as input and object types are defined separately in the GraphQL spec.
      */
-    @Query(name = "getFriendsOf", description = "Returns all the friends of a character")
+    @Query(value = "getFriendsOf", description = "Returns all the friends of a character")
     public List<Character> getFriendsOf(Character character) {
         // ...
         return null;
@@ -71,7 +71,7 @@ public class CharacterService {
         searchByName(name: String = "Han Solo"): [Character]
     }
      */
-    @Query(name = "searchByName", description = "Search characters by name")
+    @Query(value = "searchByName", description = "Search characters by name")
     public List<Character> getByName(
             @Argument(name = "name", defaultValue = "Han Solo", description = "Search terms")
                     String search) {
@@ -87,7 +87,7 @@ public class CharacterService {
             tweets: [Tweet]
         }
      */
-    @Query(name = "tweets", description = "Get the last tweets for a character")
+    @Query(value = "tweets", description = "Get the last tweets for a character")
     public List<Tweet> tweets(@Source Character character) {
         // Contact Twitter to fetch the Tweets about this book
         return null;
